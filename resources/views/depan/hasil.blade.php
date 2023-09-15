@@ -1,4 +1,4 @@
-@extends('pages.home.index')
+@extends('depan.app')
 @push('add-styles')
 <link href="{{asset('sbadmin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 @endpush
@@ -22,7 +22,7 @@
       </div><!-- End Header Container -->
     </div>
   </header>
-<main id="main">    
+<main id="main">
     <div class="container" style="margin-top: 150px;">
         <div class="card">
             <div class="card-body">
@@ -68,10 +68,10 @@
                                     @endif
                                     @if ($item->status == 'DITERIMA')
                                         <div class="font-weight-bold text-success">DITERIMA</div>
-                                    @endif    
+                                    @endif
                                 </td>
                                 <td>
-                                    @if ($item->status == 'DITERIMA')                                        
+                                    @if ($item->status == 'DITERIMA')
                                         <form method="get" class="d-inline-block" action="{{ route('download-hasil') }}">
                                             @csrf
                                             <button type="submit" class="btn btn-success mr-2">
@@ -84,7 +84,7 @@
                                         </button>
                                     @endif
                                 </td>
-                                
+
                             </tr>
                             <?php $i++; ?>
                             @empty

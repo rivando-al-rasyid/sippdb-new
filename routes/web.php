@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('depan.index');
+    return view('depan.index')->name('landing.page');
 });
