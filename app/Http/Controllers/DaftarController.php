@@ -107,7 +107,7 @@ class DaftarController extends Controller
 
         DB::commit();
         Alert::success('Success', 'Thank you for registering!');
-        return redirect()->route('landing-page');
+        return redirect()->route('landing.page');
     }
 
     public function hasil()
