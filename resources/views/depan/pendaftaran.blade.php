@@ -89,12 +89,12 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label>Agama</label>
-                                    <select name="id_agama" class="form-control">
-                                        @forelse ($agama as $item)
-                                            <option value="{{ $item->id }}">{{ $item->nama_agama }}</option>
-                                        @empty
-                                            <option value="">NO Data</option>
-                                        @endforelse
+                                    <select name="agama" class="form-control">
+                                        <option value="islam">ISLAM</option>
+                                        <option value="kristen">KRISTEN</option>
+                                        <option value="hindu">HINDU</option>
+                                        <option value="buddha">BUDDHA</option>
+                                        <option value="khonghucu">KHONGHUCU</option>
                                     </select>
                                 </div>
                             </div>
@@ -124,25 +124,10 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Jurusan</label>
-                                    <select name="id_jurusan" class="form-control">
-                                        @forelse ($jurusan as $item)
-                                            <option value="{{ $item->id }}">{{ $item->jurusan }}</option>
-                                        @empty
-                                            <option value="">NO Data</option>
-                                        @endforelse
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label>Jenis Kelamin</label>
-                                    <select name="id_jenis_kelamin" class="form-control">
-                                        @forelse ($jenkel as $item)
-                                            <option value="{{ $item->id }}">{{ $item->jenis_kelamin }}</option>
-                                        @empty
-                                            <option value="">NO Data</option>
-                                        @endforelse
+                                    <select name="jenis_kelamin" class="form-control">
+                                        <option value="l">Laki-laki</option>
+                                        <option value="p">Perempuan</option>
                                     </select>
                                 </div>
                             </div>

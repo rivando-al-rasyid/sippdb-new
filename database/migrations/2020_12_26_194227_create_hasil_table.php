@@ -17,17 +17,11 @@ class CreateHasilTable extends Migration
             $table->id();
 
 
-            $table->unsignedBigInteger('id_jurusan');
-            $table->foreign('id_jurusan')
-            ->references('id')
-            ->on('tbl_jurusan')
-            ->onDelete('cascade');
-
             $table->unsignedBigInteger('nis');
             $table->foreign('nis')
-            ->references('id')
-            ->on('tbl_peserta_ppdb')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('tbl_peserta_ppdb')
+                ->onDelete('cascade');
 
             $table->string('nama');
             $table->string('asal_sekolah');
