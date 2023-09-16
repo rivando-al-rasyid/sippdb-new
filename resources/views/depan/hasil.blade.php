@@ -30,47 +30,6 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <?php $i = 1; ?>
-                                @forelse ($items as $item)
-                                    <tr>
-                                        <td>{{ $i }}</td>
-                                        <td>{{ $item->peserta->nama }}</td>
-                                        <td>{{ $item->peserta->asal_sekolah }}</td>
-                                        <td>{{ $item->peserta->nama_ortu }}</td>
-                                        <td>
-                                            @if ($item->status == 'MENUNGGU')
-                                                <div class="font-weight-bold text-warning">MENUNGGU</div>
-                                            @endif
-                                            @if ($item->status == 'DITOLAK')
-                                                <div class="font-weight-bold text-danger">DITOLAK</div>
-                                            @endif
-                                            @if ($item->status == 'DITERIMA')
-                                                <div class="font-weight-bold text-success">DITERIMA</div>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if ($item->status == 'DITERIMA')
-                                                <form method="get" class="d-inline-block"
-                                                    action="{{ route('download-hasil') }}">
-                                                    @csrf
-                                                    <button type="submit" class="btn btn-success mr-2">
-                                                        Download
-                                                    </button>
-                                                </form>
-                                            @else
-                                                <button type="submit" class="btn btn-secondary mr-2" disabled>
-                                                    Download
-                                                </button>
-                                            @endif
-                                        </td>
-
-                                    </tr>
-                                    <?php $i++; ?>
-                                @empty
-                                    <tr class="text-center">
-                                        <td colspan="8"> Tidak Ada Data</td>
-                                    </tr>
-                                @endforelse
                             </tbody>
                         </table>
                     </div>

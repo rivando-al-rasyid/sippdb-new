@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');
 Route::get('/hasil', [DaftarController::class, 'hasil'])->name('hasil');
-Route::get('/hasil/download', [DaftarController::class, 'download'])->name('download-hasil');
+
 Route::post('/daftar', [DaftarController::class, 'daftar'])->name('daftar.kirim');
 
 // Route::get('/admin', [DashboardController::class, 'index'])->name('home');
