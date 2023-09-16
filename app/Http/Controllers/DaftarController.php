@@ -30,20 +30,18 @@ class DaftarController extends Controller
      */
     public function index()
     {
-        $agama = Agama::all();
-        $jenkel = JenisKelamin::all();
         $hasil_ortu = PenghasilanOrangtua::all();
         $pekerjaan_ortu = PekerjaanOrangtua::all();
-        $jurusan = Jurusan::all();
         return view('pages.user-flow.pendaftaran', compact(
-            'agama', 'jenkel', 'hasil_ortu', 'pekerjaan_ortu', 'jurusan' 
+            'hasil_ortu',
+            'pekerjaan_ortu'
         ));
     }
 
     public function daftar(Request $request)
     {
         DB::beginTransaction();
-        
+
         $validator = \Validator::make($request->all(), [
             'id_jenis_kelamin' => 'required|exists:tbl_jenis_kelamin,id',
             'id_agama' => 'required|exists:tbl_agama,id',
@@ -61,12 +59,12 @@ class DaftarController extends Controller
             'id_penghasilan_ayah' => 'required|exists:tbl_penghasilan_ortu,id',
             'id_penghasilan_ibu' => 'required|exists:tbl_penghasilan_ortu,id',
             'no_telp_ortu' => 'required'
-            ]);
+        ]);
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors());
         }
-        
+
         $data = [
             'nama' => $request->nama,
             'id_jenis_kelamin' => $request->id_jenis_kelamin,
@@ -83,7 +81,7 @@ class DaftarController extends Controller
         ];
 
         $daftar = PesertaPPDB::create($data);
-        if(!$daftar){
+        if (!$daftar) {
             DB::rollBack();
             Alert::error('Error', 'Please check your form again!');
             return redirect()->back();
@@ -101,7 +99,7 @@ class DaftarController extends Controller
         ];
 
         $ortu = BiodataOrtu::create($data2);
-        if(!$ortu){
+        if (!$ortu) {
             DB::rollBack();
             Alert::error('Error', 'Please check your form again!');
             return redirect()->back();
@@ -112,7 +110,7 @@ class DaftarController extends Controller
         ];
 
         $hasil = Hasil::create($data3);
-        if(!$hasil){
+        if (!$hasil) {
             DB::rollBack();
             Alert::error('Error', 'Please check your form again!');
             return redirect()->back();
@@ -132,6 +130,6 @@ class DaftarController extends Controller
     public function download()
     {
         $pdf = \PDF::loadView('pdf.lulus');
-    return $pdf->download('lulus.pdf');
+        return $pdf->download('lulus.pdf');
     }
 }
