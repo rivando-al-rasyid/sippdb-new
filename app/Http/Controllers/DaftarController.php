@@ -7,8 +7,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 
 // Load Models
-use App\Models\Agama;
-use App\Models\JenisKelamin;
 use App\Models\PenghasilanOrangtua;
 use App\Models\PekerjaanOrangtua;
 use App\Models\PesertaPPDB;
@@ -31,7 +29,7 @@ class DaftarController extends Controller
     {
         $hasil_ortu = PenghasilanOrangtua::all();
         $pekerjaan_ortu = PekerjaanOrangtua::all();
-        return view('pages.user-flow.pendaftaran', compact(
+        return view('depan.pendaftaran', compact(
             'hasil_ortu',
             'pekerjaan_ortu'
         ));
