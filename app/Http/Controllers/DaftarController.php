@@ -7,8 +7,11 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 
 // Load Models
+use App\Models\Agama;
+use App\Models\JenisKelamin;
 use App\Models\PenghasilanOrangtua;
 use App\Models\PekerjaanOrangtua;
+use App\Models\Jurusan;
 use App\Models\PesertaPPDB;
 use App\Models\BiodataOrtu;
 use App\Models\Hasil;
@@ -27,21 +30,24 @@ class DaftarController extends Controller
      */
     public function index()
     {
+        $agama = Agama::all();
+        $jenkel = JenisKelamin::all();
         $hasil_ortu = PenghasilanOrangtua::all();
         $pekerjaan_ortu = PekerjaanOrangtua::all();
-        return view('depan.pendaftaran', compact(
-            'hasil_ortu',
-            'pekerjaan_ortu'
+        $jurusan = Jurusan::all();
+        return view('pages.user-flow.pendaftaran', compact(
+            'agama', 'jenkel', 'hasil_ortu', 'pekerjaan_ortu', 'jurusan' 
         ));
     }
 
     public function daftar(Request $request)
     {
         DB::beginTransaction();
-
+        
         $validator = \Validator::make($request->all(), [
-            'jenis_kelamin' => 'required|exists:tbl_jenis_kelamin,id',
-            'agama' => 'required|exists:tbl_agama,id',
+            'id_jenis_kelamin' => 'required|exists:tbl_jenis_kelamin,id',
+            'id_agama' => 'required|exists:tbl_agama,id',
+            'id_jurusan' => 'required|exists:tbl_jurusan,id',
             'nama' => 'required',
             'tanggal_lahir' => 'date|before:yesterday',
             'tempat_lahir' => 'required',
@@ -55,16 +61,17 @@ class DaftarController extends Controller
             'id_penghasilan_ayah' => 'required|exists:tbl_penghasilan_ortu,id',
             'id_penghasilan_ibu' => 'required|exists:tbl_penghasilan_ortu,id',
             'no_telp_ortu' => 'required'
-        ]);
+            ]);
 
-        if ($validator->fails()) {
+        if($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors());
         }
-
+        
         $data = [
             'nama' => $request->nama,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'agama' => $request->agama,
+            'id_jenis_kelamin' => $request->id_jenis_kelamin,
+            'id_agama' => $request->id_agama,
+            'id_jurusan' => $request->id_jurusan,
             'tanggal_lahir' => $request->tanggal_lahir,
             'tempat_lahir' => $request->tempat_lahir,
             'asal_sekolah' => $request->asal_sekolah,
@@ -76,7 +83,7 @@ class DaftarController extends Controller
         ];
 
         $daftar = PesertaPPDB::create($data);
-        if (!$daftar) {
+        if(!$daftar){
             DB::rollBack();
             Alert::error('Error', 'Please check your form again!');
             return redirect()->back();
@@ -94,7 +101,7 @@ class DaftarController extends Controller
         ];
 
         $ortu = BiodataOrtu::create($data2);
-        if (!$ortu) {
+        if(!$ortu){
             DB::rollBack();
             Alert::error('Error', 'Please check your form again!');
             return redirect()->back();
@@ -105,7 +112,7 @@ class DaftarController extends Controller
         ];
 
         $hasil = Hasil::create($data3);
-        if (!$hasil) {
+        if(!$hasil){
             DB::rollBack();
             Alert::error('Error', 'Please check your form again!');
             return redirect()->back();
@@ -125,6 +132,6 @@ class DaftarController extends Controller
     public function download()
     {
         $pdf = \PDF::loadView('pdf.lulus');
-        return $pdf->download('lulus.pdf');
+    return $pdf->download('lulus.pdf');
     }
 }

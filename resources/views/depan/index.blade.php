@@ -1,29 +1,6 @@
 @extends('depan.app')
 
 @section('content')
-    <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="container">
-            <div class="header-container d-flex align-items-center">
-                <div class="logo mr-auto">
-                    <h1 class="text-light"><a href="{{ route('landing.page') }}"><span>Harapan Bangsa</span></a></h1>
-                    <!-- Uncomment below if you prefer to use an image logo -->
-                    <!-- <a href="index.html"><img src="{{ asset('assets/depan/img/logo.png') }}" alt="" class="img-fluid"></a>-->
-                </div>
-
-                <nav class="nav-menu d-none d-lg-block">
-                    <ul>
-                        <li class="active"><a href="#header">Beranda</a></li>
-                        <li><a href="#about">Tentang</a></li>
-                        <li><a href="#services">Fasilitas</a></li>
-                        <li><a href="#portfolio">Prestasi</a></li>
-                        <li><a href="#team">Pendiri</a></li>
-                        <li><a href="#contact">Kontak</a></li>
-                        <li class="get-started"><a href="#daftar">Daftar</a></li>
-                    </ul>
-                </nav><!-- .nav-menu -->
-            </div><!-- End Header Container -->
-        </div>
-    </header>
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
         <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
@@ -34,7 +11,6 @@
     </section><!-- End Hero -->
 
     <main id="main">
-
         <!-- ======= About Section ======= -->
         <section id="about" class="about">
             <div class="container">
@@ -155,8 +131,7 @@
 
                             <div class="col-md-6 d-flex align-items-stretch mt-4">
                                 <div class="icon-box align-self-center" data-aos="zoom-in" data-aos-delay="400">
-                                    <img src="{{ asset('assets/depan/img/lpangan.jpg') }}" class="img-fluid"
-                                        alt="">
+                                    <img src="{{ asset('assets/depan/img/lpangan.jpg') }}" class="img-fluid" alt="">
                                 </div>
                             </div>
 
