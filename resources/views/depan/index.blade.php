@@ -7,7 +7,7 @@
                 <div class="logo mr-auto">
                     <h1 class="text-light"><a href="{{ route('landing.page') }}"><span>Harapan Bangsa</span></a></h1>
                     <!-- Uncomment below if you prefer to use an image logo -->
-                    <!-- <a href="index.html"><img src="{{ asset('assets/img/logo.png') }}" alt="" class="img-fluid"></a>-->
+                    <!-- <a href="index.html"><img src="{{ asset('assets/depan/img/logo.png') }}" alt="" class="img-fluid"></a>-->
                 </div>
 
                 <nav class="nav-menu d-none d-lg-block">
@@ -18,7 +18,7 @@
                         <li><a href="#portfolio">Prestasi</a></li>
                         <li><a href="#team">Pendiri</a></li>
                         <li><a href="#contact">Kontak</a></li>
-                        <li class="get-started"><a href="{{ route('daftar') }}">Daftar</a></li>
+                        <li class="get-started"><a href="#daftar">Daftar</a></li>
                     </ul>
                 </nav><!-- .nav-menu -->
             </div><!-- End Header Container -->
@@ -29,7 +29,7 @@
         <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
             <h1>Selamat Datang di SMK Harapan Bangsa </h1>
             <h2>Ayo Kita Belajar Bersama</h2>
-            <a href="{{ route('daftar') }}" class="btn-get-started scrollto">Daftar Sekarang</a>
+            <a href="#daftar" class="btn-get-started scrollto">Daftar Sekarang</a>
         </div>
     </section><!-- End Hero -->
 
@@ -41,7 +41,7 @@
 
                 <div class="row content">
                     <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                        <img src="{{ asset('assets/img/kepala-sekolah.jpg') }}" alt="" class="img-fluid">
+                        <img src="{{ asset('assets/depan/img/kepala-sekolah.jpg') }}" alt="" class="img-fluid">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
                         <p>
@@ -136,25 +136,27 @@
                         <div class="row">
                             <div class="col-md-6 d-flex align-items-stretch">
                                 <div class="icon-box align-self-center" data-aos="zoom-in" data-aos-delay="100">
-                                    <img src="{{ asset('assets/img/kantin.jpg') }}" class="img-fluid" alt="">
+                                    <img src="{{ asset('assets/depan/img/kantin.jpg') }}" class="img-fluid" alt="">
                                 </div>
                             </div>
 
                             <div class="col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
                                 <div class="icon-box align-self-center" data-aos="zoom-in" data-aos-delay="200">
-                                    <img src="{{ asset('assets/img/kelas.jpg') }}" class="img-fluid" alt="">
+                                    <img src="{{ asset('assets/depan/img/kelas.jpg') }}" class="img-fluid" alt="">
                                 </div>
                             </div>
 
                             <div class="col-md-6 d-flex align-items-stretch mt-4">
                                 <div class="icon-box align-self-center" data-aos="zoom-in" data-aos-delay="300">
-                                    <img src="{{ asset('assets/img/lab komputer.jpeg') }}" class="img-fluid" alt="">
+                                    <img src="{{ asset('assets/depan/img/lab komputer.jpeg') }}" class="img-fluid"
+                                        alt="">
                                 </div>
                             </div>
 
                             <div class="col-md-6 d-flex align-items-stretch mt-4">
                                 <div class="icon-box align-self-center" data-aos="zoom-in" data-aos-delay="400">
-                                    <img src="{{ asset('assets/img/lpangan.jpg') }}" class="img-fluid" alt="">
+                                    <img src="{{ asset('assets/depan/img/lpangan.jpg') }}" class="img-fluid"
+                                        alt="">
                                 </div>
                             </div>
 
@@ -188,12 +190,12 @@
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-akademik">
                         <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/img/vocal group.jpg') }}" class="img-fluid" alt="">
+                            <img src="{{ asset('assets/depan/img/vocal group.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>Vocal Group</h4>
                                 <p>Juara 1</p>
                                 <div class="portfolio-links">
-                                    <a href="{{ asset('assets/img/vocal group.jpg') }}" data-gall="portfolioGallery"
+                                    <a href="{{ asset('assets/depan/img/vocal group.jpg') }}" data-gall="portfolioGallery"
                                         class="venobox" title="Akademik"><i class="bx bx-plus"></i></a>
                                 </div>
                             </div>
@@ -202,12 +204,12 @@
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-olahraga">
                         <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/img/basket1.jpg') }}" class="img-fluid" alt="">
+                            <img src="{{ asset('assets/depan/img/basket1.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>Basket</h4>
                                 <p>Juara 2</p>
                                 <div class="portfolio-links">
-                                    <a href="{{ asset('assets/img/basket1.jpg') }}" data-gall="portfolioGallery"
+                                    <a href="{{ asset('assets/depan/img/basket1.jpg') }}" data-gall="portfolioGallery"
                                         class="venobox" title="Olahraga"><i class="bx bx-plus"></i></a>
                                 </div>
                             </div>
@@ -216,13 +218,15 @@
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-akademik">
                         <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/img/debat-inggris.jpg') }}" class="img-fluid" alt="">
+                            <img src="{{ asset('assets/depan/img/debat-inggris.jpg') }}" class="img-fluid"
+                                alt="">
                             <div class="portfolio-info">
                                 <h4>Debat Bahasa Inggris</h4>
                                 <p>Juara 1</p>
                                 <div class="portfolio-links">
-                                    <a href="{{ asset('assets/img/debat inggris.jpg') }}" data-gall="portfolioGallery"
-                                        class="venobox" title="Akademik"><i class="bx bx-plus"></i></a>
+                                    <a href="{{ asset('assets/depan/img/debat inggris.jpg') }}"
+                                        data-gall="portfolioGallery" class="venobox" title="Akademik"><i
+                                            class="bx bx-plus"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -230,12 +234,12 @@
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-olahraga">
                         <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/img/SILAT.jpg') }}" class="img-fluid" alt="">
+                            <img src="{{ asset('assets/depan/img/SILAT.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>Pencak Silat</h4>
                                 <p>Juara 1</p>
                                 <div class="portfolio-links">
-                                    <a href="{{ asset('assets/img/SILAT.jpg') }}" data-gall="portfolioGallery"
+                                    <a href="{{ asset('assets/depan/img/SILAT.jpg') }}" data-gall="portfolioGallery"
                                         class="venobox" title="Olahraga"><i class="bx bx-plus"></i></a>
                                 </div>
                             </div>
@@ -244,13 +248,15 @@
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-akademik">
                         <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/img/cerdas-cermat.jpg') }}" class="img-fluid" alt="">
+                            <img src="{{ asset('assets/depan/img/cerdas-cermat.jpg') }}" class="img-fluid"
+                                alt="">
                             <div class="portfolio-info">
                                 <h4>Cerdas Cermat</h4>
                                 <p>Juara 2</p>
                                 <div class="portfolio-links">
-                                    <a href="{{ asset('assets/img/cerdas-cermat.jpg') }}" data-gall="portfolioGallery"
-                                        class="venobox" title="Akademik"><i class="bx bx-plus"></i></a>
+                                    <a href="{{ asset('assets/depan/img/cerdas-cermat.jpg') }}"
+                                        data-gall="portfolioGallery" class="venobox" title="Akademik"><i
+                                            class="bx bx-plus"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -258,12 +264,12 @@
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-olahraga">
                         <div class="portfolio-wrap">
-                            <img src="{{ asset('assets/img/futsal.jpg') }}" class="img-fluid" alt="">
+                            <img src="{{ asset('assets/depan/img/futsal.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>Futsal</h4>
                                 <p>Juara 2</p>
                                 <div class="portfolio-links">
-                                    <a href="{{ asset('assets/img/futsal.jpg') }}" data-gall="portfolioGallery"
+                                    <a href="{{ asset('assets/depan/img/futsal.jpg') }}" data-gall="portfolioGallery"
                                         class="venobox" title="Olahraga"><i class="bx bx-plus"></i></a>
                                 </div>
                             </div>
@@ -291,7 +297,7 @@
 
                             <div class="col-lg-6">
                                 <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                                    <div class="pic"><img src="{{ asset('assets/img/team/team-1.png') }}"
+                                    <div class="pic"><img src="{{ asset('assets/depan/img/team/team-1.png') }}"
                                             class="img-fluid" alt=""></div>
                                     <div class="member-info">
                                         <h4>Ghibran Aryasena</h4>
@@ -303,7 +309,7 @@
 
                             <div class="col-lg-6 mt-4 mt-lg-0">
                                 <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                                    <div class="pic"><img src="{{ asset('assets/img/team/team-2.png') }}"
+                                    <div class="pic"><img src="{{ asset('assets/depan/img/team/team-2.png') }}"
                                             class="img-fluid" alt=""></div>
                                     <div class="member-info">
                                         <h4>Marcelino Stevenson</h4>
@@ -315,7 +321,7 @@
 
                             <div class="col-lg-6 mt-4">
                                 <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                                    <div class="pic"><img src="{{ asset('assets/img/team/team-3.png') }}"
+                                    <div class="pic"><img src="{{ asset('assets/depan/img/team/team-3.png') }}"
                                             class="img-fluid" alt=""></div>
                                     <div class="member-info">
                                         <h4>Mahesa Fikri Firdaus</h4>
@@ -327,7 +333,7 @@
 
                             <div class="col-lg-6 mt-4">
                                 <div class="member" data-aos="zoom-in" data-aos-delay="400">
-                                    <div class="pic"><img src="{{ asset('assets/img/team/team-4.png') }}"
+                                    <div class="pic"><img src="{{ asset('assets/depan/img/team/team-4.png') }}"
                                             class="img-fluid" alt=""></div>
                                     <div class="member-info">
                                         <h4>M Adi Siswanto</h4>
