@@ -52,7 +52,7 @@
                 <div class="card-body">
                     <h1>Biodata Calon Siswa</h1>
                     <hr>
-                    <form action="{{ route('daftar-kirim') }}" method="POST">
+                    <form action="{{ route('daftar.kirim') }}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-12">
