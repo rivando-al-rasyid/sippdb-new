@@ -36,12 +36,7 @@ Route::get('/hasil', [DaftarController::class, 'hasil'])->name('hasil');
 
 Route::post('/daftar', [DaftarController::class, 'daftar'])->name('daftar.kirim');
 
-// Route::get('/admin', [DashboardController::class, 'index'])->name('admin');
-
 // Master Data
-Route::resource('admin/user', 'UserController');
-Route::resource('admin/pekerjaan_ortu', 'PekerjaanOrangTuaController');
-Route::resource('admin/penghasilan_ortu', 'PenghasilanOrangtuaController');
 
 Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
 Route::get('/pembayaran/create', [PembayaranController::class, 'create'])->name('pembayaran.create');
