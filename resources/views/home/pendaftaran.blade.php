@@ -79,13 +79,13 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <div class="form-group">
                                     <label>Tanggal Lahir</label>
                                     <input type="date" name="tanggal_lahir" class="form-control" autocomplete="off">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <div class="form-group">
                                     <label>Tempat Lahir</label>
                                     <input type="text" name="tempat_lahir" class="form-control" autocomplete="off">
@@ -103,7 +103,7 @@
                                     <textarea name="alamat" rows="10" class="form-control"></textarea>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <div class="form-group">
                                     <label>Jenis Kelamin</label>
                                     <select name="jenis_kelamin" class="form-control">
@@ -123,7 +123,7 @@
                                         autofocus>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <div class="form-group">
                                     <label>Pekerjaan Ayah</label>
                                     <select name="id_pekerjaan_ayah" class="form-control">
@@ -135,7 +135,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <div class="form-group">
                                     <label>Penghasilan Ayah</label>
                                     <select name="id_penghasilan_ayah" class="form-control">
@@ -154,7 +154,7 @@
                                     <input type="text" name="nama_ibu" class="form-control" autocomplete="off" autofocus>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <div class="form-group">
                                     <label>Pekerjaan Ibu</label>
                                     <select name="id_pekerjaan_ibu" class="form-control">
@@ -166,7 +166,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <div class="form-group">
                                     <label>Penghasilan Ibu</label>
                                     <select name="id_penghasilan_ibu" class="form-control">
