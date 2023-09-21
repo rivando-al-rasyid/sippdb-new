@@ -11,12 +11,12 @@ class PekerjaanOrangtuaController extends Controller
     public function index()
     {
         $items = PekerjaanOrangtua::all();
-        return view('pages.pekerjaan_ortu.index', compact('items'));
+        return view('admin.pekerjaan_ortu.index', compact('items'));
     }
 
     public function create()
     {
-        return view('pages.pekerjaan_ortu.create');
+        return view('admin.pekerjaan_ortu.create');
     }
 
     public function store(Request $request)
@@ -36,7 +36,7 @@ class PekerjaanOrangtuaController extends Controller
     public function edit($id)
     {
         $data = PekerjaanOrangtua::find($id);
-        return view('pages.pekerjaan_ortu.edit', compact('data'));
+        return view('admin.pekerjaan_ortu.edit', compact('data'));
     }
 
     public function update(Request $request, $id)

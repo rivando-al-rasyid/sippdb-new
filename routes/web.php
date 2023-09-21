@@ -6,7 +6,6 @@ use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\DashboardController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,7 +40,6 @@ Route::post('/daftar', [DaftarController::class, 'daftar'])->name('daftar.kirim'
 Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
 Route::get('/pembayaran/create', [PembayaranController::class, 'create'])->name('pembayaran.create');
 
-
 Route::get('/dash', [DashboardController::class, 'index'])->name('home');
 Route::get('/dash/detail/{id}', [DashboardController::class, 'detail'])->name('detail-peserta');
 Route::patch('/dash/diterima/{id}', [DashboardController::class, 'terima'])->name('peserta-diterima');
@@ -49,12 +47,8 @@ Route::patch('/dash/ditolak/{id}', [DashboardController::class, 'ditolak'])->nam
 Route::get('/download', [DashboardController::class, 'download'])->name('download');
 
 // Master Data
-Route::resource('admin/agama', 'AgamaController');
-Route::resource('admin/user', 'UserController');
-Route::resource('admin/jenis_kelamin', 'JenisKelaminController');
-Route::resource('admin/jurusan', 'JurusanController');
-Route::resource('admin/pekerjaan_ortu', 'PekerjaanOrangTuaController');
-Route::resource('admin/penghasilan_ortu', 'PenghasilanOrangtuaController');
-
+Route::resource('dash/user', 'UserController');
+Route::resource('dash/pekerjaan_ortu', 'PekerjaanOrangtuaController');
+Route::resource('dash/penghasilan_ortu', 'PenghasilanOrangtuaController');
 
 require __DIR__ . '/auth.php';

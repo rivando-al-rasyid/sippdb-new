@@ -12,8 +12,6 @@ Route::group(['as' => 'admin.', 'prefix' => '/admin', 'middleware' => ['web', 'a
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('/kelola/tu', 'KelolaController');
-    Route::resource('/pekerjaan_ortu', 'PekerjaanOrangTuaController');
-    Route::resource('/penghasilan_ortu', 'PenghasilanOrangtuaController');
 });
 
 require __DIR__ . '/auth.php';
