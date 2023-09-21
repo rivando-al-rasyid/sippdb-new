@@ -16,21 +16,21 @@ class BiodataOrtu extends Model
 
     public function pekerjaan_ayah()
     {
-        return $this->belongsTo(PekerjaanOrangtua::class, 'id_pekerjaan_ayah');
+        return $this->belongsTo(PekerjaanOrtu::class, 'id_pekerjaan_ayah');
     }
 
     public function pekerjaan_ibu()
     {
-        return $this->belongsTo(PekerjaanOrangtua::class, 'id_pekerjaan_ibu');
+        return $this->belongsTo(PekerjaanOrtu::class, 'id_pekerjaan_ibu');
     }
 
     public function penghasilan_ayah()
     {
-        return $this->belongsTo(PenghasilanOrangtua::class, 'id_penghasilan_ayah');
+        return $this->belongsTo(PenghasilanOrtu::class, 'id_penghasilan_ayah');
     }
 
     public function penghasilan_ibu()
     {
-        return $this->belongsTo(PenghasilanOrangtua::class, 'id_penghasilan_ibu');
+        return $this->belongsTo(PenghasilanOrtu::class, 'id_penghasilan_ibu');
     }
 }

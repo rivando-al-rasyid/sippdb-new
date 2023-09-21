@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 
 // Load Models
-use App\Models\PenghasilanOrangtua;
-use App\Models\PekerjaanOrangtua;
+use App\Models\PenghasilanOrtu;
+use App\Models\PekerjaanOrtu;
 use App\Models\PesertaPPDB;
 use App\Models\BiodataOrtu;
 use App\Models\Hasil;
@@ -18,8 +18,8 @@ class DaftarController extends Controller
 {
     public function index()
     {
-        $hasil_ortu = PenghasilanOrangtua::all();
-        $pekerjaan_ortu = PekerjaanOrangtua::all();
+        $hasil_ortu = PenghasilanOrtu::all();
+        $pekerjaan_ortu = PekerjaanOrtu::all();
         return view('home.pendaftaran', compact(
             'hasil_ortu',
             'pekerjaan_ortu',
