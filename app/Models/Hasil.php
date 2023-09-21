@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Hasil extends Model
 {
     protected $guarded = [];
-    protected $table = "tbl_hasil";
+    protected $table = "PekerjaanOrtu";
 
     public function peserta()
     {
