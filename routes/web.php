@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\PembayaranController;
 
-use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +39,7 @@ Route::post('/daftar', [DaftarController::class, 'daftar'])->name('daftar.kirim'
 
 Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
 Route::get('/pembayaran/create', [PembayaranController::class, 'create'])->name('pembayaran.create');
+
 
 
 
