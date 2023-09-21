@@ -3,7 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DaftarController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PembayaranController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,19 +31,15 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');
-Route::post('/daftar', [DaftarController::class, 'daftar'])->name('daftar.kirim');
 Route::get('/hasil', [DaftarController::class, 'hasil'])->name('hasil');
 
-Route::get('/admin', [DashboardController::class, 'index'])->name('home');
-Route::get('/admin/detail/{id}', [DashboardController::class, 'detail'])->name('detail-peserta');
-Route::patch('/admin/diterima/{id}', [DashboardController::class, 'terima'])->name('peserta-diterima');
-Route::patch('/admin/ditolak/{id}', [DashboardController::class, 'ditolak'])->name('peserta-ditolak');
-Route::get('/download', [DashboardController::class, 'download'])->name('download');
+Route::post('/daftar', [DaftarController::class, 'daftar'])->name('daftar.kirim');
 
 // Master Data
-Route::resource('admin/user', 'UserController');
-Route::resource('admin/pekerjaan_ortu', 'PekerjaanOrangtuaController');
-Route::resource('admin/penghasilan_ortu', 'PenghasilanOrangtuaController');
+
+Route::get('/pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
+Route::get('/pembayaran/create', [PembayaranController::class, 'create'])->name('pembayaran.create');
+
 
 
 

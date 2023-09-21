@@ -91,20 +91,6 @@ class DaftarController extends Controller
             return redirect()->back();
         }
 
-        $dataHasil = [
-            'nis' => $daftar->id,
-            'nama' => $daftar->nama,
-            'asal_sekolah' => $daftar->asal_sekolah
-
-        ];
-
-        $hasil = Hasil::create($dataHasil);
-        if (!$hasil) {
-            DB::rollBack();
-            Alert::error('Error', 'Please check your form again!');
-            return redirect()->back();
-        }
-
         DB::commit();
         Alert::success('Success', 'Thank you for registering!');
         return redirect()->route('landing.page');
@@ -112,7 +98,5 @@ class DaftarController extends Controller
 
     public function hasil()
     {
-        $items = Hasil::with(['peserta.orang_tua'])->get();
-        return view('depan.hasil', compact('items'));
     }
 }
