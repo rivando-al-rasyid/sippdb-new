@@ -14,7 +14,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Form Data Pekerjaan Orangtua</h6>
             </div>
             <div class="card-body">
-                <a href="{{ route('pekerjaan_ortu.index') }}" class="btn btn-warning mb-2">Back</a>
+                <a href="{{ route('pekerjaan_ortu.edit', ['id' => $data->id]) }}">Edit</a>
                 <form action="{{ route('pekerjaan_ortu.update', $data->id) }}" method="POST">
                     @method('PATCH')
                     @csrf

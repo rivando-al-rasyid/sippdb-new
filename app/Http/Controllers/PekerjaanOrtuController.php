@@ -55,6 +55,7 @@ class PekerjaanOrtuController extends Controller
      */
     public function edit(PekerjaanOrtu $pekerjaanOrtu)
     {
+        $data = PekerjaanOrtu::find($id);
         return view('admin.pekerjaan_ortu.edit', compact('pekerjaanOrtu'));
     }
 

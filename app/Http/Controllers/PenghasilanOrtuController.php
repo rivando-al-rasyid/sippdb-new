@@ -55,6 +55,7 @@ class PenghasilanOrtuController extends Controller
      */
     public function edit(PenghasilanOrtu $penghasilanOrtu)
     {
+        $data = PenghasilanOrtu::find($id);
         return view('admin.penghasilan_ortu.edit', compact('penghasilanOrtu'));
     }
 
