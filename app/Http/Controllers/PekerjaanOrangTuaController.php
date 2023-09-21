@@ -3,130 +3,61 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-// Call Package
-use RealRashid\SweetAlert\Facades\Alert; 
-
-// Call Models
-use App\Models\PekerjaanOrangtua; 
+use App\Models\PekerjaanOrangtua;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PekerjaanOrangtuaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $items = PekerjaanOrangtua::all();
         return view('pages.pekerjaan_ortu.index', compact('items'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('pages.pekerjaan_ortu.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        $validator = \Validator::make($request->all(), [
+        $request->validate([
             'nama_pekerjaan' => 'required',
         ]);
 
-        if ($validator->fails()) {
-            Alert::error('Error', 'Please Check Your Form');
-            return back();
-        }
-
-        $Query = New PekerjaanOrangtua();
-        $Query->nama_pekerjaan = $request->nama_pekerjaan;
-
-        $Query->save();
-
+        PekerjaanOrangtua::create([
+            'nama_pekerjaan' => $request->nama_pekerjaan,
+        ]);
 
         Alert::success('Sukses', 'Simpan Data Sukses');
         return redirect()->route('pekerjaan_ortu.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        $data = PekerjaanOrangtua::find($id);
-
+        $data = PekerjaanOrangtua::findOrFail($id);
         return view('pages.pekerjaan_ortu.edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        $validator = \Validator::make($request->all(), [
-            'nama_pekerjaan_ortu' => 'required',
+        $request->validate([
+            'nama_pekerjaan' => 'required',
         ]);
 
-      
+        $pekerjaan = PekerjaanOrangtua::findOrFail($id);
+        $pekerjaan->nama_pekerjaan = $request->nama_pekerjaan;
+        $pekerjaan->save();
 
-        if ($validator->fails()) {
-            Alert::error('Error', 'Please Check Your Form');
-            return back();
-        }
-
-        $Query = PekerjaanOrangtua::find($id);
-        $Query->nama_pekerjaan = $request->nama_pekerjaan_ortu;
-
-        if($Query){
-
-            $Query->update();
-            Alert::success('Sukses', 'Edit Data Sukses');
-            return redirect()->route('pekerjaan_ortu.index');            
-
-        }
-        Alert::error('Error', 'Please Check Your Form');
+        Alert::success('Sukses', 'Edit Data Sukses');
+        return redirect()->route('pekerjaan_ortu.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        $Query = PekerjaanOrangtua::findOrFail($id);
-        $Query->delete();
+        $pekerjaan = PekerjaanOrangtua::findOrFail($id);
+        $pekerjaan->delete();
+
         Alert::success('Sukses', 'Hapus Data Sukses');
         return redirect()->route('pekerjaan_ortu.index');
     }
