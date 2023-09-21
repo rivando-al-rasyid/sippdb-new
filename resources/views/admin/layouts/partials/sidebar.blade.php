@@ -34,7 +34,6 @@
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Master Data:</h6>
-                <a class="collapse-item" href="{{ route('user.index') }}">User</a>
                 <a class="collapse-item" href="{{ route('pekerjaan_ortu.index') }}">Pekerjaan Orang Tua</a>
                 <a class="collapse-item" href="{{ route('penghasilan_ortu.index') }}">Penghasilan Orang tua</a>
             </div>
