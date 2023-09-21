@@ -1,4 +1,4 @@
-@extends('depan.app')
+@extends('home.app')
 @push('add-styles')
     <link href="{{ asset('sbadmin/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 @endpush

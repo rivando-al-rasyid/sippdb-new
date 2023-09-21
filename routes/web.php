@@ -17,7 +17,7 @@ use App\Http\Controllers\PembayaranController;
 */
 
 Route::get('/', function () {
-    return view('depan.index');
+    return view('home.index');
 })->name('landing.page');
 
 Route::get('/dashboard', function () {

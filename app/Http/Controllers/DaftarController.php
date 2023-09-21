@@ -20,7 +20,7 @@ class DaftarController extends Controller
     {
         $hasil_ortu = PenghasilanOrangtua::all();
         $pekerjaan_ortu = PekerjaanOrangtua::all();
-        return view('depan.pendaftaran', compact(
+        return view('home.pendaftaran', compact(
             'hasil_ortu',
             'pekerjaan_ortu',
         ));
@@ -90,6 +90,17 @@ class DaftarController extends Controller
             Alert::error('Error', 'Please check your form again!');
             return redirect()->back();
         }
+        $data3 = [
+            'nis' => $daftar->id
+        ];
+
+        $hasil = Hasil::create($data3);
+        if (!$hasil) {
+            DB::rollBack();
+            Alert::error('Error', 'Please check your form again!');
+            return redirect()->back();
+        }
+
 
         DB::commit();
         Alert::success('Success', 'Thank you for registering!');
@@ -98,5 +109,7 @@ class DaftarController extends Controller
 
     public function hasil()
     {
+        $items = Hasil::with(['peserta.orang_tua'])->get();
+        return view('home.hasil', compact('items'));
     }
 }
