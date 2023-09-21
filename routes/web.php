@@ -3,7 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DaftarController;
-
 use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
@@ -31,19 +30,18 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/daftar', [DaftarController::class, 'index'])->name('daftar');
-Route::get('/hasil', [DaftarController::class, 'hasil'])->name('hasil');
-Route::get('/hasil/download', [DaftarController::class, 'download'])->name('download-hasil');
 Route::post('/daftar', [DaftarController::class, 'daftar'])->name('daftar.kirim');
+Route::get('/hasil', [DaftarController::class, 'hasil'])->name('hasil');
 
-// Route::get('/admin', [DashboardController::class, 'index'])->name('home');
-// Route::get('/admin/detail/{id}', [DashboardController::class, 'detail'])->name('detail-peserta');
+Route::get('/admin', [DashboardController::class, 'index'])->name('home');
+Route::get('/admin/detail/{id}', [DashboardController::class, 'detail'])->name('detail-peserta');
 Route::patch('/admin/diterima/{id}', [DashboardController::class, 'terima'])->name('peserta-diterima');
 Route::patch('/admin/ditolak/{id}', [DashboardController::class, 'ditolak'])->name('peserta-ditolak');
 Route::get('/download', [DashboardController::class, 'download'])->name('download');
 
 // Master Data
 Route::resource('admin/user', 'UserController');
-Route::resource('admin/pekerjaan_ortu', 'PekerjaanOrangTuaController');
+Route::resource('admin/pekerjaan_ortu', 'PekerjaanOrangtuaController');
 Route::resource('admin/penghasilan_ortu', 'PenghasilanOrangtuaController');
 
 
