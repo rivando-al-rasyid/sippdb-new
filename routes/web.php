@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PekerjaanOrtuController;
+use App\Http\Controllers\PenghasilanOrtuController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,8 +50,7 @@ Route::patch('/dash/ditolak/{id}', [DashboardController::class, 'ditolak'])->nam
 Route::get('/download', [DashboardController::class, 'download'])->name('download');
 
 // Master Data
-Route::resource('dash/user', 'UserController');
-Route::resource('dash/pekerjaan_ortu', 'PekerjaanOrangtuaController');
-Route::resource('dash/penghasilan_ortu', 'PenghasilanOrangtuaController');
+Route::resource('dash/pekerjaan_ortu', PekerjaanOrtuController::class);
+Route::resource('dash/penghasilan_ortu', PenghasilanOrtuController::class);
 
 require __DIR__ . '/auth.php';

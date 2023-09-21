@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PekerjaanOrtu;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PekerjaanOrtuController extends Controller
 {
@@ -12,7 +13,8 @@ class PekerjaanOrtuController extends Controller
      */
     public function index()
     {
-        //
+        $items = PekerjaanOrtu::all();
+        return view('admin.pekerjaan_ortu.index', compact('items'));
     }
 
     /**
@@ -20,7 +22,7 @@ class PekerjaanOrtuController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.pekerjaan_ortu.create');
     }
 
     /**
@@ -28,7 +30,16 @@ class PekerjaanOrtuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_pekerjaan' => 'required',
+        ]);
+
+        $pekerjaanOrtu = new PekerjaanOrtu();
+        $pekerjaanOrtu->nama_pekerjaan = $request->nama_pekerjaan;
+        $pekerjaanOrtu->save();
+
+        Alert::success('Success', 'Data Saved Successfully');
+        return redirect()->route('pekerjaan_ortu.index');
     }
 
     /**
@@ -36,7 +47,7 @@ class PekerjaanOrtuController extends Controller
      */
     public function show(PekerjaanOrtu $pekerjaanOrtu)
     {
-        //
+        // Implementation for showing a specific resource
     }
 
     /**
@@ -44,7 +55,7 @@ class PekerjaanOrtuController extends Controller
      */
     public function edit(PekerjaanOrtu $pekerjaanOrtu)
     {
-        //
+        return view('admin.pekerjaan_ortu.edit', compact('pekerjaanOrtu'));
     }
 
     /**
@@ -52,7 +63,15 @@ class PekerjaanOrtuController extends Controller
      */
     public function update(Request $request, PekerjaanOrtu $pekerjaanOrtu)
     {
-        //
+        $request->validate([
+            'nama_pekerjaan' => 'required',
+        ]);
+
+        $pekerjaanOrtu->nama_pekerjaan = $request->nama_pekerjaan;
+        $pekerjaanOrtu->save();
+
+        Alert::success('Success', 'Data Updated Successfully');
+        return redirect()->route('pekerjaan_ortu.index');
     }
 
     /**
@@ -60,6 +79,9 @@ class PekerjaanOrtuController extends Controller
      */
     public function destroy(PekerjaanOrtu $pekerjaanOrtu)
     {
-        //
+        $pekerjaanOrtu->delete();
+
+        Alert::success('Success', 'Data Deleted Successfully');
+        return redirect()->route('pekerjaan_ortu.index');
     }
 }
