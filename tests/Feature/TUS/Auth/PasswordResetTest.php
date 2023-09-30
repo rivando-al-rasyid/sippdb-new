@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Feature\TUS\Auth;
+namespace Tests\Feature\Tus\Auth;
 
-use App\Modules\TUS\Models\TU;
-use App\Modules\TUS\Notifications\Auth\ResetPassword;
+use App\Modules\Tus\Models\Tu;
+use App\Modules\Tus\Notifications\Auth\ResetPassword;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
@@ -23,22 +23,22 @@ class PasswordResetTest extends TestCase
     {
         Notification::fake();
 
-        $tU = TU::factory()->create();
+        $tu = Tu::factory()->create();
 
-        $this->post('/tu/forgot-password', ['email' => $tU->email]);
+        $this->post('/tu/forgot-password', ['email' => $tu->email]);
 
-        Notification::assertSentTo($tU, ResetPassword::class);
+        Notification::assertSentTo($tu, ResetPassword::class);
     }
 
     public function test_reset_password_screen_can_be_rendered(): void
     {
         Notification::fake();
 
-        $tU = TU::factory()->create();
+        $tu = Tu::factory()->create();
 
-        $this->post('/tu/forgot-password', ['email' => $tU->email]);
+        $this->post('/tu/forgot-password', ['email' => $tu->email]);
 
-        Notification::assertSentTo($tU, ResetPassword::class, function ($notification) {
+        Notification::assertSentTo($tu, ResetPassword::class, function ($notification) {
             $response = $this->get('/tu/reset-password/'.$notification->token);
 
             $response->assertStatus(200);
@@ -51,14 +51,14 @@ class PasswordResetTest extends TestCase
     {
         Notification::fake();
 
-        $tU = TU::factory()->create();
+        $tu = Tu::factory()->create();
 
-        $this->post('/tu/forgot-password', ['email' => $tU->email]);
+        $this->post('/tu/forgot-password', ['email' => $tu->email]);
 
-        Notification::assertSentTo($tU, ResetPassword::class, function ($notification) use ($tU) {
+        Notification::assertSentTo($tu, ResetPassword::class, function ($notification) use ($tu) {
             $response = $this->post('/tu/reset-password', [
                 'token' => $notification->token,
-                'email' => $tU->email,
+                'email' => $tu->email,
                 'password' => 'password',
                 'password_confirmation' => 'password',
             ]);

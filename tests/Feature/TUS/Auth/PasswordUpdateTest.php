@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Feature\TUS\Auth;
+namespace Tests\Feature\Tus\Auth;
 
-use App\Modules\TUS\Models\TU;
+use App\Modules\Tus\Models\Tu;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
@@ -13,10 +13,10 @@ class PasswordUpdateTest extends TestCase
 
     public function test_password_can_be_updated(): void
     {
-        $tU = TU::factory()->create();
+        $tu = Tu::factory()->create();
 
         $response = $this
-            ->actingAs($tU, 'tu')
+            ->actingAs($tu, 'tu')
             ->from('/tu/profile')
             ->put('/tu/password', [
                 'current_password' => 'password',
@@ -28,15 +28,15 @@ class PasswordUpdateTest extends TestCase
             ->assertSessionHasNoErrors()
             ->assertRedirect('/tu/profile');
 
-        $this->assertTrue(Hash::check('new-password', $tU->refresh()->password));
+        $this->assertTrue(Hash::check('new-password', $tu->refresh()->password));
     }
 
     public function test_correct_password_must_be_provided_to_update_password(): void
     {
-        $tU = TU::factory()->create();
+        $tu = Tu::factory()->create();
 
         $response = $this
-            ->actingAs($tU, 'tu')
+            ->actingAs($tu, 'tu')
             ->from('/tu/profile')
             ->put('/tu/password', [
                 'current_password' => 'wrong-password',

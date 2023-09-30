@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Feature\TUS\Auth;
+namespace Tests\Feature\Tus\Auth;
 
-use App\Modules\TUS\Models\TU;
+use App\Modules\Tus\Models\Tu;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -17,25 +17,25 @@ class AuthenticationTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_t_us_can_authenticate_using_the_login_screen(): void
+    public function test_tus_can_authenticate_using_the_login_screen(): void
     {
-        $tU = TU::factory()->create();
+        $tu = Tu::factory()->create();
 
         $response = $this->post('/tu/login', [
-            'email' => $tU->email,
+            'email' => $tu->email,
             'password' => 'password',
         ]);
 
-        $this->assertAuthenticatedAs($tU, 'tu');
+        $this->assertAuthenticatedAs($tu, 'tu');
         $response->assertRedirect('/tu');
     }
 
-    public function test_t_us_can_not_authenticate_with_invalid_password(): void
+    public function test_tus_can_not_authenticate_with_invalid_password(): void
     {
-        $tU = TU::factory()->create();
+        $tu = Tu::factory()->create();
 
         $this->post('/tu/login', [
-            'email' => $tU->email,
+            'email' => $tu->email,
             'password' => 'wrong-password',
         ]);
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Feature\TUS\Auth;
+namespace Tests\Feature\Tus\Auth;
 
-use App\Modules\TUS\Models\TU;
+use App\Modules\Tus\Models\Tu;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -17,16 +17,16 @@ class RegistrationTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_new_t_us_can_register(): void
+    public function test_new_tus_can_register(): void
     {
         $response = $this->post('/tu/register', [
-            'name' => 'Test TU',
+            'name' => 'Test Tu',
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
         ]);
 
-        $this->assertAuthenticatedAs(TU::first(), 'tu');
+        $this->assertAuthenticatedAs(Tu::first(), 'tu');
         $response->assertRedirect('/tu');
     }
 }

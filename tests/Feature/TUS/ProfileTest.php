@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Feature\TUS;
+namespace Tests\Feature\Tus;
 
-use App\Modules\TUS\Models\TU;
+use App\Modules\Tus\Models\Tu;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -12,10 +12,10 @@ class ProfileTest extends TestCase
 
     public function test_profile_page_is_displayed(): void
     {
-        $tU = TU::factory()->create();
+        $tu = Tu::factory()->create();
 
         $response = $this
-            ->actingAs($tU, 'tu')
+            ->actingAs($tu, 'tu')
             ->get('/tu/profile');
 
         $response->assertOk();
@@ -23,12 +23,12 @@ class ProfileTest extends TestCase
 
     public function test_profile_information_can_be_updated(): void
     {
-        $tU = TU::factory()->create();
+        $tu = Tu::factory()->create();
 
         $response = $this
-            ->actingAs($tU, 'tu')
+            ->actingAs($tu, 'tu')
             ->patch('/tu/profile', [
-                'name' => 'Test TU',
+                'name' => 'Test Tu',
                 'email' => 'test@example.com',
             ]);
 
@@ -36,37 +36,37 @@ class ProfileTest extends TestCase
             ->assertSessionHasNoErrors()
             ->assertRedirect('/tu/profile');
 
-        $tU->refresh();
+        $tu->refresh();
 
-        $this->assertSame('Test TU', $tU->name);
-        $this->assertSame('test@example.com', $tU->email);
-        $this->assertNull($tU->email_verified_at);
+        $this->assertSame('Test Tu', $tu->name);
+        $this->assertSame('test@example.com', $tu->email);
+        $this->assertNull($tu->email_verified_at);
     }
 
     public function test_email_verification_status_is_unchanged_when_the_email_address_is_unchanged(): void
     {
-        $tU = TU::factory()->create();
+        $tu = Tu::factory()->create();
 
         $response = $this
-            ->actingAs($tU, 'tu')
+            ->actingAs($tu, 'tu')
             ->patch('/tu/profile', [
-                'name' => 'Test TU',
-                'email' => $tU->email,
+                'name' => 'Test Tu',
+                'email' => $tu->email,
             ]);
 
         $response
             ->assertSessionHasNoErrors()
             ->assertRedirect('/tu/profile');
 
-        $this->assertNotNull($tU->refresh()->email_verified_at);
+        $this->assertNotNull($tu->refresh()->email_verified_at);
     }
 
-    public function test_t_u_can_delete_their_account(): void
+    public function test_tu_can_delete_their_account(): void
     {
-        $tU = TU::factory()->create();
+        $tu = Tu::factory()->create();
 
         $response = $this
-            ->actingAs($tU, 'tu')
+            ->actingAs($tu, 'tu')
             ->delete('/tu/profile', [
                 'password' => 'password',
             ]);
@@ -76,15 +76,15 @@ class ProfileTest extends TestCase
             ->assertRedirect('/tu');
 
         $this->assertGuest('tu');
-        $this->assertNull($tU->fresh());
+        $this->assertNull($tu->fresh());
     }
 
     public function test_correct_password_must_be_provided_to_delete_account(): void
     {
-        $tU = TU::factory()->create();
+        $tu = Tu::factory()->create();
 
         $response = $this
-            ->actingAs($tU, 'tu')
+            ->actingAs($tu, 'tu')
             ->from('/tu/profile')
             ->delete('/tu/profile', [
                 'password' => 'wrong-password',
@@ -94,6 +94,6 @@ class ProfileTest extends TestCase
             ->assertSessionHasErrorsIn('userDeletion', 'password')
             ->assertRedirect('/tu/profile');
 
-        $this->assertNotNull($tU->fresh());
+        $this->assertNotNull($tu->fresh());
     }
 }
