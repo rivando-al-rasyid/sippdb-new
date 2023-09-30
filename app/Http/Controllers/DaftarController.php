@@ -41,10 +41,10 @@ class DaftarController extends Controller
             'no_telp' => 'required',
             'nama_ayah' => 'required',
             'nama_ibu' => 'required',
-            'id_pekerjaan_ayah' => 'required|exists:tbl_pekerjaan_ortu,id',
-            'id_pekerjaan_ibu' => 'required|exists:tbl_pekerjaan_ortu,id',
-            'id_penghasilan_ayah' => 'required|exists:tbl_penghasilan_ortu,id',
-            'id_penghasilan_ibu' => 'required|exists:tbl_penghasilan_ortu,id',
+            'id_pekerjaan_ayah' => 'required|exists:pekerjaan_ortu,id',
+            'id_pekerjaan_ibu' => 'required|exists:pekerjaan_ortu,id',
+            'id_penghasilan_ayah' => 'required|exists:penghasilan_ortu,id',
+            'id_penghasilan_ibu' => 'required|exists:penghasilan_ortu,id',
             'no_telp_ortu' => 'required'
         ]);
 

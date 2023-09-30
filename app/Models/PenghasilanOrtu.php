@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class PenghasilanOrtu extends Model
 {
-    protected $table = "tbl_penghasilan_ortu";
+    protected $table = "penghasilan_ortu";
 }

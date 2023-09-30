@@ -13,7 +13,7 @@ class CreatePekerjaanOrtuTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_pekerjaan_ortu', function (Blueprint $table) {
+        Schema::create('pekerjaan_ortu', function (Blueprint $table) {
             $table->id();
             $table->string('nama_pekerjaan');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreatePekerjaanOrtuTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_pekerjaan_ortu');
+        Schema::dropIfExists('pekerjaan_ortu');
     }
 }

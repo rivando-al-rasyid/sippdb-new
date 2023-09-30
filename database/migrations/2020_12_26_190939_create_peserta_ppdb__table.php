@@ -13,20 +13,20 @@ class CreatePesertaPpdbTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_peserta_ppdb', function (Blueprint $table) {
+        Schema::create('peserta_ppdb', function (Blueprint $table) {
             $table->id();
             //Penghasilam Ortu relasi
             $table->unsignedBigInteger('id_penghasilan_ortu');
             $table->foreign('id_penghasilan_ortu')
                 ->references('id')
-                ->on('tbl_penghasilan_ortu')
+                ->on('penghasilan_ortu')
                 ->onDelete('cascade');
 
             //Pekerjaan Ortu relasi
             $table->unsignedBigInteger('id_pekerjaan_ortu');
             $table->foreign('id_pekerjaan_ortu')
                 ->references('id')
-                ->on('tbl_pekerjaan_ortu')
+                ->on('pekerjaan_ortu')
                 ->onDelete('cascade');
 
 
@@ -50,6 +50,6 @@ class CreatePesertaPpdbTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_peserta_ppdb');
+        Schema::dropIfExists('peserta_ppdb');
     }
 }

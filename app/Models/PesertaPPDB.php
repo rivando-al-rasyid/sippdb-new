@@ -8,7 +8,7 @@ class PesertaPPDB extends Model
 {
     protected $guarded = [];
 
-    protected $table = "tbl_peserta_ppdb";
+    protected $table = "peserta_ppdb";
 
     public function orang_tua()
     {

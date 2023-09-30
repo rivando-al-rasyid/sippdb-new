@@ -13,7 +13,7 @@ class CreatePenghasilanOrtuTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_penghasilan_ortu', function (Blueprint $table) {
+        Schema::create('penghasilan_ortu', function (Blueprint $table) {
             $table->id();
             $table->integer('penghasilan_ortu');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreatePenghasilanOrtuTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_penghasilan_ortu');
+        Schema::dropIfExists('penghasilan_ortu');
     }
 }

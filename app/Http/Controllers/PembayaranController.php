@@ -27,12 +27,12 @@ class PembayaranController extends Controller
         $pembayaran = Pembayaran::all();
 
         // Return the view with the list of pembayaran
-        return view('pembayaran.index', compact('pembayaran'));
+        return view('dashboard.pembayaran.index', compact('pembayaran'));
     }
 
     public function create()
     {
-        return view('pembayaran.create');
+        return view('dashboard.pembayaran.create');
     }
 
     public function store(Request $request)
@@ -101,5 +101,4 @@ class PembayaranController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
-
 }

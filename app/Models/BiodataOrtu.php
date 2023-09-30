@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class BiodataOrtu extends Model
 {
     protected $guarded = [];
-    protected $table = "tbl_biodata_ortu";
+    protected $table = "biodata_ortu";
 
     public function peserta()
     {

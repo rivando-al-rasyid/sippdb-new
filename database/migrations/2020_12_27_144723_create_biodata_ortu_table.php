@@ -13,32 +13,32 @@ class CreateBiodataOrtuTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_biodata_ortu', function (Blueprint $table) {
+        Schema::create('biodata_ortu', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('id_pekerjaan_ayah');
             $table->foreign('id_pekerjaan_ayah')
-            ->references('id')
-            ->on('tbl_pekerjaan_ortu')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('pekerjaan_ortu')
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('id_pekerjaan_ibu');
             $table->foreign('id_pekerjaan_ibu')
-            ->references('id')
-            ->on('tbl_pekerjaan_ortu')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('pekerjaan_ortu')
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('id_penghasilan_ayah');
             $table->foreign('id_penghasilan_ayah')
-            ->references('id')
-            ->on('tbl_penghasilan_ortu')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('penghasilan_ortu')
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('id_penghasilan_ibu');
             $table->foreign('id_penghasilan_ibu')
-            ->references('id')
-            ->on('tbl_penghasilan_ortu')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('penghasilan_ortu')
+                ->onDelete('cascade');
 
             $table->string('nama_ayah');
             $table->string('nama_ibu');
@@ -54,6 +54,6 @@ class CreateBiodataOrtuTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_biodata_ortu');
+        Schema::dropIfExists('biodata_ortu');
     }
 }
